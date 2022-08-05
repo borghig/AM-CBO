@@ -19,7 +19,7 @@ and
 
 ### [2] An adaptive consensus based method for multi-objective optimization with uniform Pareto front approximation
 
-[TBA]
+https://arxiv.org/abs/2208.01362
 
 by
 
@@ -51,16 +51,18 @@ For the reader's convenience we describe the functions and the main script in wh
 ## C i t a t i o n s
 
 ```bibtex
-@article{borghi2022adaptive,
-  doi = {10.48550/ARXIV.2203.16384},
-  url = {https://arxiv.org/abs/2203.16384},
+@misc{https://doi.org/10.48550/arxiv.2208.01362,
+  doi = {10.48550/ARXIV.2208.01362},
+  url = {https://arxiv.org/abs/2208.01362},
   author = {Borghi, Giacomo and Herty, Michael and Pareschi, Lorenzo},
   keywords = {Optimization and Control (math.OC), FOS: Mathematics, FOS: Mathematics, 35Q70, 35Q84, 35Q93, 90C29, 90C56},
   title = {An adaptive consensus based method for multi-objective optimization with uniform Pareto front approximation},
-    year = {2022},
-    }
+  publisher = {arXiv},
+  year = {2022},
+  copyright = {arXiv.org perpetual, non-exclusive license}
+}
 
-@article{borghi2022multi,
+@misc{borghi2022multi,
   doi = {10.48550/ARXIV.2203.16384},
   url = {https://arxiv.org/abs/2203.16384},
   author = {Borghi, Giacomo and Herty, Michael and Pareschi, Lorenzo},
@@ -71,4 +73,4 @@ For the reader's convenience we describe the functions and the main script in wh
     copyright = {arXiv.org perpetual, non-exclusive license}
 }
 ```
-(Template take from https://github.com/KonstantinRiedl/CBOGlobalConvergenceAnalysis)
+(Template taken from https://github.com/KonstantinRiedl/CBOGlobalConvergenceAnalysis)
