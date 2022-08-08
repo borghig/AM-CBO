@@ -69,20 +69,23 @@ while k <= ev.kmax
     output.GDtot(k)  = compute_IGD(g,problem.F);
     output.Utot(k)   = U;
     
-    v.potential = 'Riesz';
-    v.potLenght = 1;  
-    [~,E] = compute_potential(g,v);
-    output.enRIE(k) = E;
-    
-    v.potential = 'Newtonian';
-    v.potLenght = 1;
-    [~,E] = compute_potential(g,v);
-    output.enNEW(k) = E;
-    
-    v.potential = 'Morse';
-    v.potLenght = 20;
-    [~,E] = compute_potential(g,v);
-    output.enMOR(k) = E;
+    % eventually compute additional statistics
+    if ev.compute_all_stat 
+        v.potential = 'Riesz';
+        v.potLenght = 1;
+        [~,E] = compute_potential(g,v);
+        output.enRIE(k) = E;
+        
+        v.potential = 'Newtonian';
+        v.potLenght = 1;
+        [~,E] = compute_potential(g,v);
+        output.enNEW(k) = E;
+        
+        v.potential = 'Morse';
+        v.potLenght = 20;
+        [~,E] = compute_potential(g,v);
+        output.enMOR(k) = E;
+    end
 
     k=k+1;
 end
