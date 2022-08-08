@@ -38,12 +38,14 @@ For the reader's convenience we describe the functions and the main script in wh
 * problem_generator.m: generates Lamé and DOD2K benchmark problems of arbitrary search space dimension
 * ReferenceSolutions.mat: pre-computed reference solutions of the test problems considered in [2]
 * AM-CBO.m: algorithm implementation
+* figure{number}.m: script which performs the experiments as described in [2]. Data is save in figure{number}_data.mat and figures are generate. To use already-computed data, run the second section of the script only.
 * auxiliary functions 
   * compute_IGD.m: computes GD and IGD perfomance metrics given a reference solution
   * compute_potential.m: computes total potential energy of a given particles distribution, together with the associated vector field.
   * compute_yalpha.m: computed weighted averages according to the Gibbs distribution as in [2]
   * faster_pareto2.m: given a set of points, deletes the dominated ones. [credits: by Ahmed  HASSAN (ahah432@yahoo.com) and Maurel AZA-GNANDJI (my.lrichy@gmail.com)]
   * lebesgue_measure.m: computes the hypervolume contribution diversity metric [Copyright (c) 2009, Yi Cao]
+  * AM_CBO_Mtimes.m: runs the same simulation several times to perform statistics.
 
   
 ------
