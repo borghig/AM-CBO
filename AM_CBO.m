@@ -1,7 +1,5 @@
 function [output] = AM_CBO(problem, ev, in)
-
 %{
-
     %(remark: w represent the first component of the weight vector, the
     % second one is uniquely determined as 1-w)
 %}
@@ -68,7 +66,7 @@ while k <= ev.kmax
     output.IGDtot(k) = compute_IGD(problem.F,g);
     output.GDtot(k)  = compute_IGD(g,problem.F);
     output.Utot(k)   = U;
-    
+       
     % eventually compute additional statistics
     if ev.compute_all_stat 
         v.potential = 'Riesz';
@@ -86,7 +84,7 @@ while k <= ev.kmax
         [~,E] = compute_potential(g,v);
         output.enMOR(k) = E;
     end
-
+    
     k=k+1;
 end
 

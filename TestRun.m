@@ -14,7 +14,7 @@ ev.deltat    = 1e-2;
 ev.alpha     = 1e+6;
 ev.lambda    = 1;
 ev.sigma     = 3;
-ev.tau       = 1e-5;
+ev.tau       = 1;
 ev.diffusion = 'aniso';     %options: 'iso' or 'aniso'
 ev.kmax      = 5e+3;
 ev.potential = 'Morse';     %options: 'Riesz', 'Newtonian', 'Morse' 
@@ -22,7 +22,7 @@ ev.potLenght = 20;          %addtional parameter for 'Morse' potential
 ev.compute_all_stat = true; %eventually compute additional statistics
 
 
-% intilize particles in the structure in.-
+% intialize particles in the structure in.-
 N = 100;
 in.x0 = rand(N,problem.dim).*(problem.ub-problem.lb) + problem.lb;
 in.w0 = linspace(0,1,N)';

@@ -8,19 +8,19 @@ C1 = 1;
 C2 = ev.potLenght;
         
 
-Np = length(g);
+N = length(g);
 
  
 a1 = g(:,1);
-A1 = repmat(a1,1,Np);
+A1 = repmat(a1,1,N);
 D1 = A1 - A1'; % D1(i,j) = a(i,1) - a(j,1)
 
 a2 = g(:,2);
-A2 = repmat(a2,1,Np);
+A2 = repmat(a2,1,N);
 D2 = A2 - A2'; % D2(i,j) = a(i,2) - a(j,2)
 
 % D(i,j,:) = a(i,:) - a(j,:) % after squeezing and transposing
-D = zeros(Np, Np, 2);
+D = zeros(N, N, 2);
 D(:,:,1) = D1;
 D(:,:,2) = D2;
 
@@ -37,14 +37,14 @@ switch ev.potential
         nom(:,:,2) = invND;
         
         DDU = D.*(nom.^3);
-        DU = C1*squeeze(sum(DDU,2)/(Np-1));
+        DU = C1*squeeze(sum(DDU,2)/(N-1));
         %DU = real(DU);
         
         % potential 
         llog = invND;
         llog(llog ==Inf) = 0;
         llog(llog ==-Inf) = 0;
-        U = C1*sum(llog,'all')/(Np*(Np-1));
+        U = C1*sum(llog,'all')/(N*(N-1));
 
     case 'Newtonian'
         % AKA Newtonian potential
@@ -61,14 +61,14 @@ switch ev.potential
         nom(:,:,2) = invND;
         
         DDU = D.*(nom.^2); %should be .^2 here, but was .^3
-        DU = C1*squeeze(sum(DDU,2)/(Np-1));
+        DU = C1*squeeze(sum(DDU,2)/(N-1));
         %DU = real(DU);
         
         % potential 
         llog = -log(ND);
         llog(llog ==Inf) = 0;
         llog(llog ==-Inf) = 0;
-        U = C1*sum(llog,'all')/(Np*(Np-1));
+        U = C1*sum(llog,'all')/(N*(N-1));
         
     case 'Morse'
         % DU  = -(C1*C2*x/|x|)e^(-|x|*C2)/2
@@ -87,13 +87,17 @@ switch ev.potential
         
         %return DU
         DDU = C2.*D./nom.*expo./2;
-        DU = squeeze(sum(DDU,2)/(Np-1)); %this sums all the entries
+        DU = squeeze(sum(DDU,2)/(N-1)); %this sums all the entries
         %DU = real(DU);
        
         % potential 
-        U = sum(expo,'all')/(Np*(Np-1));  
+        U = sum(expo,'all')/(N*(N-1));  
         
         Uvec = sum(ex,2);
+    case 'NoInt'
+        DU = zeros(N,2);
+        U = 0;
+        Uvec = zeros(N,1);
 end
   
 end
