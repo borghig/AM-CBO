@@ -19,6 +19,7 @@ ev.diffusion = 'aniso';     %options: 'iso' or 'aniso'
 ev.kmax      = 5e+3;
 ev.potential = 'Morse';     %options: 'Riesz', 'Newtonian', 'Morse' 
 ev.potLenght = 20;          %addtional parameter for 'Morse' potential
+ev.compute_all_stat = true; %eventually compute additional statistics
 
 
 % intilize particles in the structure in.-
